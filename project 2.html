@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPG Calculator</title>
+    <link rel="stylesheet" href="Css/styles.css">
+	
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation menu */
+        nav {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            padding: 12px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #5a6fc1;
+        }
+
+        /* Calculator form styling */
+        .calculator {
+            text-align: center;
+            margin-top: 30px;
+            background-color: #ffffff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .calculator img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .calculator h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about me.html">About</a></li>
+            <li><a href="project 1.html">Project 1</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- MPG Calculator -->
+    <div class="calculator">
+        <!-- Logo -->
+        <img src="images/download.png" alt="Calculator Logo">
+
+        <h2>Miles Per Gallon Calculator</h2>
+
+        <!-- Input Fields -->
+        <label for="miles">Miles Traveled:</label>
+        <input type="number" id="miles" placeholder="Enter miles traveled" required>
+
+        <label for="gallons">Gallons Used:</label>
+        <input type="number" id="gallons" placeholder="Enter gallons used" required>
+
+        <!-- Calculate Button -->
+        <button onclick="calculateMPG()">Calculate MPG</button>
+
+        <!-- Output Display -->
+        <div class="output" id="result"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>Copyright 2024 © By Mileiny All Rights Reserved</footer>
+
+    <script>
+        // Function to calculate MPG (Miles per Gallon)
+        function calculateMPG() {
+            // Get the input values for miles and gallons
+            const miles = parseFloat(document.getElementById('miles').value);
+            const gallons = parseFloat(document.getElementById('gallons').value);
+
+            // Check if both fields have valid numeric values
+            if (isNaN(miles) || isNaN(gallons) || miles <= 0 || gallons <= 0) {
+                // Show an error message if values are invalid
+                document.getElementById('result').textContent = "Please enter valid values for both fields.";
+                document.getElementById('result').style.color = "red";
+            } else {
+                // Calculate the MPG
+                const mpg = miles / gallons;
+
+                // Display the result
+                document.getElementById('result').textContent = "Your MPG is: " + mpg.toFixed(2);
+                document.getElementById('result').style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>
